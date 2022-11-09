@@ -10,6 +10,9 @@ import TableRow from '@mui/material/TableRow';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import Button from '@mui/material/Button';
 import Resume from "../components/Resume";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
 
 const CadastroPage = () => {
 
@@ -152,6 +155,8 @@ const CadastroPage = () => {
     localStorage.setItem("totalContacts", JSON.stringify(newArray));
   };
 
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div className="grid">
       <div className="container">
@@ -190,7 +195,11 @@ const CadastroPage = () => {
           </Table>
         </form>
 
+        <Button variant="contained" onClick={() => setOpen(true)}> Cadastrar Iten</Button>
+        <Modal open={open} onClose={() => setOpen(false)}>
+          <Box>
         <div className="form">
+        <Button className="cancel-button" color="error" variant="contained" onClick={() => setOpen(false)}><CloseIcon/></Button>
           <form onSubmit={handleAddFormSubmit}>
             <div className="col-a">
               <div className="input-box">
@@ -256,10 +265,12 @@ const CadastroPage = () => {
                 </select>
               </div>
 
-              <Button variant="contained" color="primary" type="submit"><ArchiveIcon /></Button>
+              <Button className="button-cadastrar" variant="contained" color="primary" type="submit">Cadastrar<ArchiveIcon /></Button>
             </div>
           </form>
         </div>
+        </Box>
+        </Modal>
         <div className="head">
           <header className="form-header">
             <h2 className="form-title">Cadastro de Itens</h2>

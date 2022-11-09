@@ -28,6 +28,10 @@ p {
 
 .form form {
     width: 935px;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    background-color: white;
     border: 1px solid rgb(231, 231, 231);
     display: block;
     padding-block: 25px;
@@ -41,6 +45,19 @@ p {
     gap: 15px;
     align-items: center;
     justify-content: center;
+}
+
+.cancel-button {
+    position: absolute;
+    border-radius: none;
+    top: 160px;
+    left: 78%;
+}
+
+.button-cadastrar {
+    display: flex;
+    margin-top: 10px;
+    gap: 5px;
 }
 
 button {
