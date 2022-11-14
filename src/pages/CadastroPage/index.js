@@ -11,8 +11,11 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import Button from '@mui/material/Button';
 import Resume from "../components/Resume";
 import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
+import CancelIcon from '@mui/icons-material/Cancel';
+
 
 const CadastroPage = () => {
 
@@ -36,7 +39,7 @@ const CadastroPage = () => {
 
     setEntrada(`Quantidade: ${entrada}`);
     setSaida(`Quantidade: ${saida}`);
-    
+
   }, [totalContacts]);
 
   const [contacts, setContacts] = useState(totalContacts);
@@ -197,86 +200,103 @@ const CadastroPage = () => {
 
         <Button variant="contained" onClick={() => setOpen(true)}> Cadastrar Iten</Button>
         <Modal open={open} onClose={() => setOpen(false)}>
-          <Box>
-        <div className="form">
-        <Button className="cancel-button" color="error" variant="contained" onClick={() => setOpen(false)}><CloseIcon/></Button>
-          <form onSubmit={handleAddFormSubmit}>
-            <div className="col-a">
-              <div className="input-box">
-                <label for="name">Nome:</label>
-                <input
-                  type="text"
-                  name="nome"
-                  required="required"
-                  placeholder="Nome"
-                  onChange={handleAddFormChange}
-                />
-              </div>
-              <div className="input-box">
-              <label for="marca">Marca:</label>
-                <input
-                  type="text"
-                  name="marca"
-                  required="required"
-                  placeholder="Marca"
-                  onChange={handleAddFormChange}
-                />
-              </div>
-              <div className="input-box">
-              <label for="subctg">Subcategoria:</label>
-                <input
-                  type="text"
-                  name="subctg"
-                  required="required"
-                  placeholder="Subcategoria"
-                  onChange={handleAddFormChange}
-                />
-              </div>
-            </div>
-            <div className="col-b">
-              <div className="input-box">
-              <label for="medida">Medida:</label>
-                <select
-                  name="medida"
-                  onChange={handleAddFormChange}>
-                  <option>Litro (L)</option>
-                  <option>Mililitro (mL)</option>
-                  <option>Grama (g)</option>
-                  <option>Quilograma (kg)</option>
-                </select>
-              </div>
-              <div className="input-box">
-              <label for="quant">Quantidade:</label>
-                <input
-                  type="number"
-                  name="quant"
-                  required="required"
-                  placeholder="Quantidade"
-                  onChange={handleAddFormChange}
-                />
-              </div>
-              <div className="input-box">
-              <label for="tipo">Tipo:</label>
-                <select
-                  name="tipo"
-                  onChange={handleAddFormChange}>
-                  <option>Entrada</option>
-                  <option>Saída</option>
-                </select>
-              </div>
+          <div className="form">
+            <Button className="cancel-button" color="error" variant="contained" onClick={() => setOpen(false)}><CloseIcon /></Button>
+            <form onSubmit={handleAddFormSubmit}>
+              <Typography textAlign="center" id="modal-modal-title" variant="h6">
+                Cadastrar Item
+              </Typography>
 
-              <Button className="button-cadastrar" variant="contained" color="primary" type="submit">Cadastrar<ArchiveIcon /></Button>
-            </div>
-          </form>
-        </div>
-        </Box>
+              <Typography textAlign="center" gutterBottom>
+                Preencha todos os campos para prosseguir.
+              </Typography>
+
+
+              <Box
+                sx={{
+                  width: '100%',
+                  marginTop:'20px',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: 1,
+                  gridTemplateRows: 'auto',
+                }}
+              >
+
+                <div className="input-box">
+                  <label for="name">Nome:</label>
+                  <input
+                    type="text"
+                    name="nome"
+                    required="required"
+                    placeholder="Nome"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+                <div className="input-box">
+                  <label for="marca">Marca:</label>
+                  <input
+                    type="text"
+                    name="marca"
+                    required="required"
+                    placeholder="Marca"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+                <div className="input-box">
+                  <label for="subctg">Subcategoria:</label>
+                  <input
+                    type="text"
+                    name="subctg"
+                    required="required"
+                    placeholder="Subcategoria"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+                <div className="input-box">
+                  <label for="medida">Medida:</label>
+                  <select
+                    name="medida"
+                    onChange={handleAddFormChange}>
+                    <option>Litro (L)</option>
+                    <option>Mililitro (mL)</option>
+                    <option>Grama (g)</option>
+                    <option>Quilograma (kg)</option>
+                  </select>
+                </div>
+                <div className="input-box">
+                  <label for="quant">Quantidade:</label>
+                  <input
+                    type="number"
+                    name="quant"
+                    required="required"
+                    placeholder="Quantidade"
+                    onChange={handleAddFormChange}
+                  />
+                </div>
+                <div className="input-box">
+                  <label for="tipo">Tipo:</label>
+                  <select
+                    name="tipo"
+                    onChange={handleAddFormChange}>
+                    <option>Entrada</option>
+                    <option>Saída</option>
+                  </select>
+                </div>
+              </Box>
+              <div className="buttons-form">
+                <Button className="button-form" variant="outlined" onClick={() => setOpen(false)}>Cancelar<CancelIcon /></Button>
+                <Button className="button-form" variant="contained" color="primary" type="submit">Cadastrar<ArchiveIcon /></Button>
+              </div>
+            </form>
+          </div>
         </Modal>
         <div className="head">
           <header className="form-header">
             <h2 className="form-title">Cadastro de Itens</h2>
           </header>
           <Resume saida={saida} entrada={entrada} />
-          </div>
+        </div>
       </div>
     </div>
   );

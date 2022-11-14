@@ -27,36 +27,33 @@ p {
 }
 
 .form form {
-    width: 935px;
     position: absolute;
-    top: 30%;
-    left: 15%;
+    justify-items: center;
+    top: 15%;
+    left: 28%;
+    width: 500px;
     background-color: white;
     border: 1px solid rgb(231, 231, 231);
-    display: block;
-    padding-block: 25px;
+    padding: 25px;
     border-radius: 5px;
-}
-
-.col-a,
-.col-b {
-    display: flex;
-    width: 98%;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
 }
 
 .cancel-button {
     position: absolute;
-    border-radius: none;
-    top: 160px;
-    left: 78%;
+    top: 60px;
+    left: 63%;
 }
 
-.button-cadastrar {
+.buttons-form {
     display: flex;
-    margin-top: 10px;
+    margin-top: 25px;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: row;
+}
+
+.button-form {
+    display: flex;
     gap: 5px;
 }
 
@@ -104,4 +101,13 @@ table {
 .input-box {
     font-weight: 600;
     text-align: start;
+    margin-left: 20px;
+}
+
+input {
+    width: 180px;
+}
+
+select {
+    width: 200px;
 }
