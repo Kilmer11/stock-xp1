@@ -1,0 +1,13 @@
+.buttons-form-edit {
+    display: flex;
+    margin-top: 0px;
+    margin-inline: auto;
+    gap: 30px;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.button-form {
+    display: flex;
+    gap: 5px;
+}
